@@ -1,0 +1,87 @@
+const numeroSecreto = 27; // Cambia este valor manualmente
+let intentos = 0;
+const intentosMaximos = 3;
+let nombreJugador = '';
+let edadjugador = '';
+
+function iniciarJuego() {
+  nombreJugador = document.getElementById('nombreJugador').value.trim();
+  edadjugador = document.getElementById('edadjugador').value.trim();
+
+  if (nombreJugador === '' || edadjugador === '') {
+    alert('⚠ Por favor, ingresa tu nombre y edad.');
+    return;
+  }
+
+  mostrarSeccion('zonaJuego');
+  document.getElementById('introJuego').textContent = `¡Buena suerte, ${nombreJugador}! 🎯`;
+  document.getElementById('entradaNumero').disabled = false;
+  document.getElementById('entradaNumero').focus();
+}
+
+function adivinar() {
+  const entrada = document.getElementById('entradaNumero');
+  const mensaje = document.getElementById('mensaje');
+  const intentosDiv = document.getElementById('intentos');
+  const numero = parseInt(entrada.value);
+
+  if (isNaN(numero) || numero < 1 || numero > 100) {
+    mensaje.style.color = 'red';
+    mensaje.textContent = '⚠ Ingresa un número válido entre 1 y 100.';
+    return;
+  }
+
+  intentos++;
+
+  if (numero === numeroSecreto) {
+    mensaje.style.color = '#00ff99';
+    mensaje.textContent = `🎉 ¡Bien hecho, ${nombreJugador}! Adivinaste el número ${numeroSecreto} en ${intentos} intento(s).`;
+    entrada.disabled = true;
+    mostrarBotonesReinicio();
+  } else if (numero < numeroSecreto) {
+    mensaje.style.color = '#ffff66';
+    mensaje.textContent = '🔼 El número secreto es más alto.';
+  } else {
+    mensaje.style.color = '#ff6666';
+    mensaje.textContent = '🔽 El número secreto es más bajo.';
+  }
+
+  intentosDiv.textContent = `Intentos: ${intentos} de ${intentosMaximos}`;
+
+  if (intentos >= intentosMaximos && numero !== numeroSecreto) {
+    mensaje.style.color = 'orange';
+    mensaje.textContent = `❌ Perdiste. El número era ${numeroSecreto}.`;
+    entrada.disabled = true;
+    mostrarBotonesReinicio();
+  }
+}
+
+function mostrarBotonesReinicio() {
+  document.getElementById('reiniciarBtn').style.display = 'inline-block';
+  
+}
+
+function reiniciarJuego() {
+  location.reload();
+}
+
+function volverAlInicio() {
+  intentos = 0;
+  document.getElementById('pantallaInicio').style.display = 'block';
+  document.getElementById('zonaJuego').style.display = 'none';
+  document.getElementById('nombreJugador').value = '';
+  document.getElementById('edadjugador').value = '';
+  document.getElementById('entradaNumero').value = '';
+  document.getElementById('entradaNumero').disabled = true;
+  document.getElementById('mensaje').textContent = '';
+  document.getElementById('intentos').textContent = 'Intentos: 0';
+  document.getElementById('reiniciarBtn').style.display = 'none';
+  document.getElementById('volverInicioBtn').style.display = 'none';
+}
+
+function mostrarSeccion(id) {
+  document.getElementById('pantallaInicio').style.display = 'none';
+  document.getElementById('zonaJuego').style.display = 'none';
+  
+  document.getElementById(id).style.display = 'block';
+}
