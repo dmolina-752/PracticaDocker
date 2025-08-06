@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Adivina el número</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- NAV -->
+  <nav>
+    <ul>
+      <li><a href="#" onclick="mostrarSeccion('pantallaInicio')">🏠 Inicio</a></li>
+      
+    </ul>
+  </nav>
+
+  <h1>Adivina el número</h1>
+
+  <!-- INICIO -->
+  <div id="pantallaInicio">
+    <p>Antes de comenzar, escribe tu nombre y edad:</p>
+    <input type="text" id="nombreJugador" placeholder="Tu nombre" />
+    <input type="number" id="edadjugador" placeholder="Tu edad" min="1" max="120" autocomplete="off" />
+    <button onclick="iniciarJuego()">🎮 Iniciar juego</button>
+  </div>
+
+  <!-- JUEGO -->
+  <div id="zonaJuego" style="display:none;">
+    <p id="introJuego"></p>
+    <p>Estoy pensando en un número del 1 al 100</p>
+    <p>¿Cuál crees que sea?</p>
+    <input type="number" id="entradaNumero" min="1" max="100" placeholder="Tu número" disabled />
+    <button onclick="adivinar()">¡Adivinar!</button>
+
+    <div class="mensaje" id="mensaje"></div>
+    <div class="intentos" id="intentos">Intentos: 0</div>
+
+    <button id="reiniciarBtn" onclick="reiniciarJuego()" style="display: none;">🔄 Reiniciar juego</button>
+    <button id="volverInicioBtn" onclick="volverAlInicio()" style="display: none;">🏠 Volver al inicio</button>
+  </div>
+
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
