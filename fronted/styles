@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(-45deg, #1f1c2c, #928dab, #2b5876, #4e4376);
+  background-size: 400% 400%;
+  animation: fondoAnimado 10s ease infinite;
+  color: #00ffcc;
+  text-align: center;
+  padding: 50px;
+  min-height: 100vh;
+}
+
+@keyframes fondoAnimado {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1 {
+  font-size: 3em;
+  color: #00ffff;
+  text-shadow: 0 0 15px #00ffff;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.5em;
+  color: #ffffff;
+}
+
+input[type="number"],
+input[type="text"] {
+  padding: 10px;
+  font-size: 1.3em;
+  width: 220px;
+  border: 2px solid #00ff99;
+  border-radius: 10px;
+  background-color: #1a1a1a;
+  color: #00ffcc;
+  text-align: center;
+  box-shadow: 0 0 10px #00ff99;
+  outline: none;
+}
+
+button {
+  background-color: #ff0080;
+  color: white;
+  font-size: 1.2em;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-left: 10px;
+  box-shadow: 0 0 15px #ff0080;
+}
+
+button:hover {
+  background-color: #ff3399;
+  box-shadow: 0 0 20px #ff33aa;
+  transform: scale(1.05);
+}
+
+.mensaje {
+  margin-top: 25px;
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.intentos {
+  margin-top: 15px;
+  font-style: italic;
+  color: #cccccc;
+  font-size: 1.2em;
+}
+
+#reiniciarBtn {
+  margin-top: 20px;
+  background-color: #00cccc;
+  box-shadow: 0 0 15px #00ffff;
+}
+
+/* NAV */
+nav {
+  background-color: #1a1a1a;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 20px #00ffff;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.3em;
+  padding: 6px 12px;
+}
+
+nav ul li a:hover {
+  border-bottom: 3px solid #00ffff;
+}
